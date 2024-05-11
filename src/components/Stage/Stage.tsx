@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Wordbox from '../Wordbox';
+import Wordbox from '../Wordbox/Wordbox';
 import wordList from '../../word-list';
 import './style.css';
 
@@ -20,7 +20,7 @@ const generateWord = (size: number) => {
   return words[wordIndex];
 };
 
-const Stage = () => {
+const Stage = (): JSX.Element => {
   const [words] = useState<string[]>(['jahoda']);
 
   return (
