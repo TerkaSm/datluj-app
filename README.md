@@ -1,0 +1,1 @@
+úkol pro kurz Rect 2
