@@ -14,6 +14,7 @@ const generateWord = (size: number) => {
     return null;
   }
   
+  
   const words = wordList[sizeIndex];
   const wordIndex = Math.floor(Math.random() * words.length);
   return words[wordIndex];
