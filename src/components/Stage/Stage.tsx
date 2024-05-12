@@ -14,20 +14,28 @@ const generateWord = (size: number) => {
     return null;
   }
   
-  
   const words = wordList[sizeIndex];
   const wordIndex = Math.floor(Math.random() * words.length);
   return words[wordIndex];
 };
 
-const Stage = (): JSX.Element => {
-  const [words] = useState<string[]>(['jahoda']);
+const Stage: React.FC = () => {
+  const [words, setWords] = useState<string[]>(['jahoda']);
+
+  const handleFinish = () => {
+    const newWord = generateWord(6);
+    if (newWord) {
+      setWords([newWord]);
+    }
+  };
 
   return (
     <div className="stage">
       <div className="stage__mistakes">Chyb: 0</div>
       <div className="stage__words">
-        {words.map((word) => <Wordbox word={word} key={word} />)}
+        {words.map((word) => (
+          <Wordbox word={word} key={word} onFinish={handleFinish} />
+        ))}
       </div>
     </div>
   );
