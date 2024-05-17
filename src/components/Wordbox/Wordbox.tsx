@@ -4,9 +4,10 @@ import './style.css';
 interface IWordboxProps {
   word: string;
   onFinish: () => void;
+  active: boolean;
 }
 
-const Wordbox: React.FC<IWordboxProps> = ({ word, onFinish }) => {
+const Wordbox: React.FC<IWordboxProps> = ({ word, onFinish, active }) => {
   const [lettersLeft, setLettersLeft] = useState<string>(word);
   const [mistake, setMistake] = useState<boolean>(false);
 
@@ -26,12 +27,16 @@ const Wordbox: React.FC<IWordboxProps> = ({ word, onFinish }) => {
       }
     };
 
-    window.addEventListener('keyup', handleKeyUp);
+    if (active) {
+      window.addEventListener('keyup', handleKeyUp);
+    }
 
     return () => {
-      window.removeEventListener('keyup', handleKeyUp);
+      if (active) {
+        window.removeEventListener('keyup', handleKeyUp);
+      }
     };
-  }, [lettersLeft, onFinish]);
+  }, [lettersLeft, onFinish, active]);
 
   return (
     <div className={`wordbox ${mistake ? 'wordbox--mistake' : ''}`}>{lettersLeft}</div>
