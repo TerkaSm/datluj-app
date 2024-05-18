@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background: url('https://images.unsplash.com/photo-1572916118992-5e36d71f7f5c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background: url('./img/wood-background.webp');
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
@@ -36,6 +36,7 @@ body {
     3px 3px 3px rgba(0,0,0,0.7),
     1px 7px 25px rgba(0, 0, 0, 0.5);
   font-weight: 400;
+  padding-left: 40px;
 }
 
 .container {

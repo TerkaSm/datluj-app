@@ -36,7 +36,7 @@ const Stage: React.FC = () => {
     <div className="stage">
       <div className="stage__mistakes">Chyb: {mistakes}</div>
       <div className="stage__words">
-        {words.map((word, index) => (
+        {words && words.map((word, index) => (
           <Wordbox
             word={word}
             key={word}
