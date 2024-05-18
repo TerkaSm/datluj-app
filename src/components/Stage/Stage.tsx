@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Wordbox from '../Wordbox/Wordbox';
 import wordList from '../../word-list';
 import './style.css';
@@ -17,8 +17,19 @@ const generateWord = (size: number) => {
   return words[wordIndex];
 };
 
+const getRandomWords = (count: number) => {
+  const words: string[] = [];
+  for (let i = 0; i < count; i++) {
+    const newWord = generateWord(6);
+    if (newWord) {
+      words.push(newWord);
+    }
+  }
+  return words;
+};
+
 const Stage: React.FC = () => {
-  const [words, setWords] = useState<string[]>(['jahoda', 'kokosy', 'meloun']);
+  const [words, setWords] = useState<string[]>(getRandomWords(3));
   const [mistakes, setMistakes] = useState<number>(0);
 
   const handleFinish = () => {
@@ -30,19 +41,19 @@ const Stage: React.FC = () => {
 
   const handleMistake = () => {
     setMistakes((prevMistakes) => prevMistakes + 1);
-  }
+  };
 
   return (
     <div className="stage">
       <div className="stage__mistakes">Chyb: {mistakes}</div>
       <div className="stage__words">
-        {words && words.map((word, index) => (
+        {words.map((word, index) => (
           <Wordbox
             word={word}
             key={word}
             onFinish={handleFinish}
-            active={index === 0}
             onMistake={handleMistake}
+            active={index === 0}
           />
         ))}
       </div>
@@ -51,4 +62,3 @@ const Stage: React.FC = () => {
 };
 
 export default Stage;
-
