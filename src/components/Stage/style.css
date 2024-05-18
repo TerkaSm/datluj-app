@@ -1,17 +1,40 @@
 .stage {
-  height: 340px;
+  min-height: 340px;
   padding: 32px;
   margin: 32px auto;
-  color: #131313;
-  opacity: .8;
-  background-color: #efefef;
-  border-radius: 8px;
+  color: white;
+
+  background-image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
+	border-radius: 3.25em;
+	box-shadow:
+		0 -0.125em 0.25em hsla(0,0%,0%,0.2),
+		0 0.25em 0.25em hsla(var(--h),var(--s),var(--l),0.5),
+		0 0 0 0.25em hsla(var(--h),var(--s),var(--l),0.5),
+		0 0.375em 0.5em hsla(var(--h),var(--s),var(--l),0.5) inset,
+		0 -0.125em 0.375em hsla(var(--h),var(--s),var(--l),0.4) inset,
+		0 -1.25em 2em 0.5em hsla(var(--h),var(--s),var(--l),0.3) inset,
+		0 1.25em 0 hsla(var(--h),var(--s),var(--l),0.3) inset,
+		0 5em 3em hsla(0,0%,0%,0.4);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.stage:before {
+	background: radial-gradient(100% 100% at center,hsla(var(--h),var(--s),80%,0.25),hsla(var(--h),var(--s),80%,0) 50%);
+	content: "";
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: 9em;
+	height: 3em;
+	transform: translateX(-50%);
 }
 
 .stage__mistakes {
-  font-weight: 700;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 64px;
+  margin-block: 30px 64px;
 }
 
 .stage__words {
